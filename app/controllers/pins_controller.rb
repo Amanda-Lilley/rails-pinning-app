@@ -19,7 +19,8 @@ class PinsController < ApplicationController
 
   def create
     @pin = Pin.new(pin_params)
-  
+    @pin.slug = @pin.title.downcase.strip.gsub(' ', '-')
+
     if @pin.valid?
       @pin.save
     redirect_to pin_path(@pin)

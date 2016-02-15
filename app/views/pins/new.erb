@@ -15,7 +15,7 @@
     <%= f.text_field :title %>
     <%= f.collection_select(:category_id, Category.all, :id, :name) %>
     <%= f.url_field :url %>
-    <%= f.text_field :slug %>
+  <!--  <%= f.text_field :slug %>  -->
     <%= f.text_area :text, label: "Description" %>
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
