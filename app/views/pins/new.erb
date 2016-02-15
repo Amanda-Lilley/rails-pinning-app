@@ -1,3 +1,4 @@
+<div class="container row col-md-6 col-md-offset-3 well">
 <% if !@errors.nil? %>
   <div class="error">
     <label><%= pluralize(@errors.count, "error") %> prohibited this pin from being saved:</label>
@@ -8,6 +9,8 @@
     </ul>
   </div>
   <% end %>
+</div>
+
 
 <div class="container row col-md-6 col-md-offset-3">
   <h1>Add A New Pin!</h1>
