@@ -1,0 +1,22 @@
+<% if !@errors.nil? %>
+  <div class="error">
+    <label><%= pluralize(@errors.count, "error") %> prohibited this pin from being saved:</label>
+    <ul>
+      <% @errors.full_messages.each do |msg| %>
+        <li><%= "#{msg}" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<div class="container row col-md-6 col-md-offset-3">
+  <h1>Add A New Pin!</h1>
+  <%= bootstrap_form_for @pin do |f| %>
+    <%= f.text_field :title %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+    <%= f.url_field :url %>
+    <%= f.text_field :slug %>
+    <%= f.text_area :text, label: "Description" %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
