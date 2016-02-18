@@ -22,13 +22,13 @@ class UsersController < ApplicationController
   end
 
   def authenticate
-    @user = User.authenticate params[:email] 
+    @user = User.authenticate params[:email], [:password_digest]
 
     if @user.valid?
       redirect_to user_path(@user)
     else
       @errors = @user.errors
-      render :login
+      redirect_to login_path
     end
   end
 

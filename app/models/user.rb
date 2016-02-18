@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   has_secure_password
 
-  def self.authenticate(email)
+  def self.authenticate(email, password_digest)
     @user = User.find_by_email(email)
 
     if !@user.nil?
