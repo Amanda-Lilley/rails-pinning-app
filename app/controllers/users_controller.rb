@@ -21,16 +21,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def authenticate(email, password)
-    @user = User.authenticate
+  def authenticate
+    @user = User.authenticate params[:email] 
 
     if @user.valid?
       redirect_to user_path(@user)
     else
       @errors = @user.errors
       render :login
+    end
   end
-end
 
   # GET /users/1/edit
   def edit
