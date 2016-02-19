@@ -23,6 +23,13 @@ RSpec.describe UsersController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
+  before(:each) do
+    @user = FactoryGirl.build(:user)
+  end
+  after(:each) do
+    @user.destroy
+  end
+
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -36,7 +43,7 @@ RSpec.describe UsersController, type: :controller do
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  
+
 
   describe "GET #show" do
     it "assigns the requested user as @user" do
