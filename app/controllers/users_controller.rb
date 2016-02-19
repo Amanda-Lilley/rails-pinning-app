@@ -22,13 +22,14 @@ class UsersController < ApplicationController
   end
 
   def authenticate
-    @user = User.authenticate params[:email], [:password_digest]
+    
+    @user = User.authenticate params[:email], params[:password]
 
-    if @user.valid?
+    if @user && @user.valid?
       redirect_to user_path(@user)
     else
-      @errors = @user.errors
-      redirect_to login_path
+      @errors = "Authentication failed, couldn't find a User&Password pair in the datbase."
+      render :login
     end
   end
 

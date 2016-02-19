@@ -3,15 +3,14 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   has_secure_password
 
-  def self.authenticate(email, password_digest)
+  def self.authenticate(email, password)
     @user = User.find_by_email(email)
 
-    if !@user.nil?
-       @user.authenticate(email)
+    if @user.present? && @user.authenticate(password)
         return @user
-      else
-        @errors = @user.errors
-        render :login
+    else
+
+    
     end
   end
 
