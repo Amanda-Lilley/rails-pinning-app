@@ -89,11 +89,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def require_login
-      if current_user.nil?
-        redirect_to login_path
-      end
-    end
+    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

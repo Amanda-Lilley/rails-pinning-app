@@ -9,4 +9,10 @@ end
 
 helper_method :current_user
 
+def require_login
+  if current_user.nil?
+    redirect_to login_path
+  end
+end
+
 end
