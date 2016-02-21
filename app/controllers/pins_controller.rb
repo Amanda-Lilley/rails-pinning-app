@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
 
-  before_action :require_login, :index, except: [:show, :show_by_name]
+  before_action :index, :require_login,  except: [:show, :show_by_name]
 
   def index
     @pins = current_user.pins
@@ -20,7 +20,7 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin = Pin.new(pin_params)
+    @pin = current_user.pins.new(pin_params)
     @pin.slug = @pin.title.downcase.strip.gsub(' ', '-')
 
     if @pin.valid?

@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
 def current_user
   @user ||= User.where("id=?", session[:user_id]).first
+  if @user && @user.valid?
+    @user
+  else
+    nil
+  end
 end
 
 helper_method :current_user

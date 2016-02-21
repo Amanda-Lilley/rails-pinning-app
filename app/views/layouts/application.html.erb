@@ -11,7 +11,7 @@
   <div class="container">
     <% if !current_user.nil? %>
     <div class="pull-right">
-      <h3>
+      <h3 id="user_name">
         <%= "Hi, #{current_user.first_name}!"%>
         <%= link_to "Logout", logout_path(current_user), method: :delete %>
       </h3>
