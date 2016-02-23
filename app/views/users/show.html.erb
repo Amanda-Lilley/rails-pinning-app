@@ -51,4 +51,4 @@
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', root_path %> |
 <%= link_to 'Create A Pin', new_pin_path %> |
-<%= link_to 'View Your Pins', user_path(@user) %>
+<%= link_to 'View Your Pins', user_path(current_user) %>

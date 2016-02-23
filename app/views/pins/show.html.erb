@@ -13,6 +13,10 @@
   <p>
     <b>Visit <%= "#{@pin.title}" %> at: </b>
     <%= link_to "#{@pin.url}", "#{@pin.url}", html_options= {target: "_blank", class: "url"} %>
+    <br/>
+    <%= link_to 'repin_path(pin)', class: "btn btn-default", method: "post" do %>
+    Repin!
+    <% end %>
     </p>
 </div>
 <br/>

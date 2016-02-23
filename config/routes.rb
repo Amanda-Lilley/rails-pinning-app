@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   resources :pins
 
-  get 'Pins' => 'users#index' #testing
-
   get '/library' => 'pins#index'
 
   get 'signup' => "users#new", as: :signup
@@ -20,6 +18,8 @@ Rails.application.routes.draw do
   get 'login' => "users#login"
 
   post 'login' => "users#authenticate"
+
+  post "pins/repin/:id" => "pins#repin", as: 'repin'
 
   delete 'logout/:id' => "users#logout", as: :logout
   # Example of regular route:

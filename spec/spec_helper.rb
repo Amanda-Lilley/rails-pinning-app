@@ -17,4 +17,11 @@ RSpec.configure do |config|
       session[:user_id] = logged_in_user.id
     end
   end
+
+  def logout(user)
+  if session[:user_id] == user.id
+    session.delete(:user_id)
+  end
+end
+
 end
