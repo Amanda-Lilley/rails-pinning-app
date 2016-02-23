@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @pins = @current_user.pins
   end
 
   def login
@@ -89,7 +89,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

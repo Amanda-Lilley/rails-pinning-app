@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :pins
 
+  get 'Pins' => 'users#index' #testing
+
   get '/library' => 'pins#index'
 
   get 'signup' => "users#new", as: :signup
