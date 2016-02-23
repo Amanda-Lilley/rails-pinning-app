@@ -3,7 +3,7 @@ class PinsController < ApplicationController
   before_action :index, :require_login,  except: [:show, :show_by_name]
 
   def index
-    @pins = current_user.pins
+    @pins = Pin.all
   end
 
   def show
