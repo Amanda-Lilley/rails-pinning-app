@@ -23,7 +23,7 @@
   <h3>Other Pinners who <i class="fa fa-heart"></i> this pin!</h3>
   <ul>
   <% @users.each do |x| %>
-    <li><%= x %></li>
+    <li><%= x.last_name %></li>
   <% end %>
 </ul>
 </div>
