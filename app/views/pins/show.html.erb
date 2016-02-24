@@ -9,16 +9,25 @@
   <p><%= "#{@pin.text}" %></p>
 
   <hr/>
+  <figure>
   <img src="<%= @pin.image.url(:medium) %>">
-  <p>
-    <b>Visit <%= "#{@pin.title}" %> at: </b>
+    <br/>
+    <figcaption><b>Visit <%= "#{@pin.title}" %> at: </b>
     <%= link_to "#{@pin.url}", "#{@pin.url}", html_options= {target: "_blank", class: "url"} %>
     <br/>
     <%= link_to 'repin_path(pin)', class: "btn btn-default", method: "post" do %>
     Repin!
     <% end %>
-    </p>
+  </figcaption>
+  </figure>
+  <h3>Other Pinners who <i class="fa fa-heart"></i> this pin!</h3>
+  <ul>
+  <% @users.each do |x| %>
+    <li><%= x %></li>
+  <% end %>
+</ul>
 </div>
+
 <br/>
 <a href="/">
   <i class="fa fa-arrow-circle-left"></i>
