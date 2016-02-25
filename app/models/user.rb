@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :pinnings
   has_many :pins, through: :pinnings
+  has_many :boards
 
   def self.authenticate(email, password)
     @user = User.find_by_email(email)
